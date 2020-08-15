@@ -1,11 +1,9 @@
 <?php
-//Appel de l'autoloader
-//require_once '../../config/autoload.php';
+
 use src\model\ClientphDB;
 use src\model\ClientmorDB;
 use libs\system\Controller;
 use src\model\CompteDB;
-
 
 class CompteController extends Controller
 {
@@ -15,13 +13,12 @@ class CompteController extends Controller
       return $this->view->load("compte");
    }
 
-
    public function add()
    {
+      $comptedb = new CompteDB();
 
    if(isset($_POST['ajouter']))
    {
-   
       extract($_POST);
    
       if($typeclient=='1')
@@ -29,14 +26,11 @@ class CompteController extends Controller
    //Instanciation de la classe compte
          $a = new Compte();
    
-      // $a->setNumeroCte($numeroCte);
+       //$a->setNumeroCte($numeroCte);
          $a->setClerib($clerib);
          $a->setAgence($agence);
          $a->setSolde($solde);
-         
-      // $a->setAgence($agence);
-      // $a->setCltph_id($clph_id);
-      // $a->setTypeCompte_id($typeCompe_id);
+         $a->setAgence($agence);
          $a->setDateou($dateou);
    
          $cp = new CompteDB();
@@ -53,23 +47,23 @@ class CompteController extends Controller
          $b->setCleribmor($cleribmor);
          $b->setSoldemor($soldemor);
          $b->setDateoum($dateoum);
-   
-        // $a->setNumeroCte($numeroCte);
-        // $b->setAgence($agence);
-        // $b->setAgence($agence);
-         //$b->setCltph_id($clph_id);
-        //$b->setTypeCompte_id($typeCompe_id);
+         $a->setNumeroCte($numeroCte);
+         $b->setAgence($agence);
          $cm = new CompteDB();
          $rep2 = $cm->addComptemor($b);
          var_dump($rep2);
-         die();
-         
+         die(); 
       }  
       
-   
    }
-   return $this->view->load("compte");
+   $data ['clients'] = $comptedb->afficherClient();
+   $data ['clientmors'] = $comptedb->afficherClientmor();
+   $data ['agences'] = $comptedb->afficherAgence();
+   $data ['typecomptes'] = $comptedb->afficherTypecompte();
+
+   return $this->view->load("compte",$data);
 
    }
-}
+} 
 
+?>

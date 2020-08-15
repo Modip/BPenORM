@@ -1,9 +1,3 @@
-<?php
-
-// var_dump(file_exists("./src/view/public/css/mystyle.css"));
-//  die;
-
-?>
 <!DOCTYPE html>
 
 <html lang="fr">
@@ -84,8 +78,6 @@
                         <option value="">Banque du peuple</option>
                         <option value="">CBS</option>
                         <option value="">ITNA</option>
-
-
                     </select>
                 </p>
             </fieldset>

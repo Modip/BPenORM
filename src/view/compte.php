@@ -1,18 +1,4 @@
-<?php
-
-
-//Appel des classe avec les namespaces
-     use src\entities\Compte;
-     use src\model\CompteDB;
-    //Appel des fonctions afficher les clients 
-     $comptedb = new src\model\CompteDB();
-     $clients = $comptedb->afficherClient();
-     $clientmors = $comptedb->afficherClientmor();
-     $agences = $comptedb->afficherAgence();
-     $typecomptes = $comptedb->affichertypecompte();
-  
-?>
-
+<?php extract($data); ?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -33,7 +19,7 @@
     <a class="compt" href="http://localhost/mesProjets/bpenorm/Compte/add" style="color: black;">Compte</a>
         <a class="dash" href="http://localhost/mesProjets/bpenorm/Client/add">Client </a>
     </nav>
-    <form id="inscription" method="POST" action="../../src/controllers/controllercompte.php">
+    <form id="inscription" method="POST" action="http://localhost/mesProjets/bpenorm/Compte/add">
         <div class="container">
             <h2>Ouverture de Compte</h2>
             <select id="typeclient" name="typeclient" onchange="chwclient()">
@@ -48,29 +34,29 @@
                         <option value="">Clients</option>
                         <!-- Afficher les clients recuperer par la fonction du meme nom -->
                         <?php
-                      
                          foreach ($clients as $client) { 
-                            echo  "<option value='$client[0]'>$client[2] $client[1]</option>";
+                            echo  "<option value='{$client->getId()}'>{$client->getPrenom()} {$client->getNom()}</option>";
                          }
                         ?>
                     </select> <br>
 
                     <select name="agence" id="idagence">
                         <option value="">Agence</option>
-                    <!--afficher les agences grace à la fonction afficherAgence --> 
+                    <!--afficher les agences grace à la fonction afficherAgence--> 
                         <?php
-                         foreach ($agences as $agence) { 
-                          echo  "<option value='$agence[0]'>$agence[1]</option>";
-                         }
+                          foreach ($agences as $agence) { 
+                           echo  "<option value='{$agence->getId()}'>{$agence->getNom()}</option>";
+                          }
                         ?> 
                     </select> <br>
                     <select name="typecompte" id="chx" onchange="return chwcompt()">
                         <option value="0">Type de Compte</option>
-                        <!--afficher les agences grace à la fonction afficherAgence -->
+                        <!--afficher les types de compte grace à la fonction afficherTypecompte -->
                         <?php 
-                         foreach ($typecomptes as $typecompte) { 
-                          echo  "<option value='$typecompte[0]'>$typecompte[1]</option>";
-                         }
+                          foreach ($typecomptes as $typecompte) 
+                          { 
+                            echo  "<option value='{$typecompte->getId()}'>{$typecompte->getLibelle()} </option>";
+                           }
                         ?>
                     </select> <br>
 
@@ -104,10 +90,9 @@
                     <select name="clientmor">
                     <option value="0">Clients</option>
                     <?php
-
-                         foreach ($clientmors as $client) { 
-                         echo  "<option value='$client'[0]'> $client[2]</option>";
-                         }
+                    foreach ($clientmors as $client) { 
+                   echo  "<option value='{$client->getId()}'>{$client->getNom()}</option>";
+                     }
                         ?>
                     </select> <br>
                     <legend> client moral </legend>
@@ -130,7 +115,7 @@
             </div>
         </div>
     </form>
-    <script src="public/js/compt.js"></script>
+    <script src="./../src/view/public/js/compte.js"></script>
 
 </body>
 

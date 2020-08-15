@@ -13,7 +13,7 @@ class BootStrap
             $controller_file = "src/controller/".$url[0]."Controller.php";
            
             if(file_exists($controller_file))
-            { 
+            {
                 require_once $controller_file;
 
                 $file = $url[0]."Controller";
@@ -21,7 +21,7 @@ class BootStrap
                 $controller_object = new $file(); 
                 
                 // var_dump($controller_object);
-              //die;
+                //die;
             }
             else{
                 die ($controller_file."N'existe pas");

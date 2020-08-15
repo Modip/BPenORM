@@ -12,20 +12,20 @@ class ClientphDB extends Model
 
         return $clientphysique->getId();
       }
-
-  
-         
-      
-
+   
    //Fonction pour afficher les clients qui sont dans la base
 
-   public function afficherAgence()
-      {
-        $val1 = ('SELECT * FROM agence');
+   public function afficherClient()
+    {
 
-        return $db->query($val1)->fetchAll();
-      }
-
+    $clienteph = $em->getRepository("Clientph)");
+    $clients = $clientph->findAll;
+    foreach ($clients as $clientph){
+       echo $clientph->getNomComplet();
+     //  echo "<br/>".$client->
+    }
+   }
+   
    //Fonction pour afficher les types comptes
    public function afficherTypecompte()
    {
@@ -33,5 +33,7 @@ class ClientphDB extends Model
       $db = getConnection();
       return $db->query($cpt)->fetchAll();
    }
+
+   
 }
 ?>

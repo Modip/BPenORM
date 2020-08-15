@@ -22,30 +22,9 @@ class Autoloader
             require_once (str_replace("\\","/",$class.".php"));
         } 
 
-        /*
-        if (file_exists ("libs/system".$class.".php"))
-         {
-            require_once "libs/system".$class.".php";
-         }
-        else if (file_exists ("../src/model".$class.".php"))
-         {
-            require_once "../src/model".$class.".php";
-         }
-         else if (file_exists ("../src/controller".$class.".php"))
-         {
-            require_once "../src/controller".$class.".php";
-         }
-
-        */
-
     }
     
 }
 Autoloader::register();
-
-
-
-
-
 
 ?>

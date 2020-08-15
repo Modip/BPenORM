@@ -1,6 +1,7 @@
 //Function tanef client
 
-function chwclient() {
+function chwclient() 
+{
     var typeclient = document.getElementById('typeclient');
 
     if (typeclient.value == "0") {
@@ -18,10 +19,10 @@ function chwclient() {
         boutton.style.display = 'block';
 
     }
-};
+}
 //Fonction nangou bidoum client
-function validation() {
-
+function validation()
+{
     var verify = 0;
     var clerib = document.getElementById("clerib");
     var agios = document.getElementById("agios");

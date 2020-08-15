@@ -26,9 +26,9 @@ class Compte
     private  $agios;
     /** @ORM\Column(type="integer") **/
     private  $fraisph;
-    /** @ORM\Column(type="date") **/
+    /** @ORM\Column(type="string") **/
     private  $dateou;
-    /** @ORM\Column(type="date") **/
+    /** @ORM\Column(type="string") **/
     private  $dateoum;
     private $etat;
      /**
