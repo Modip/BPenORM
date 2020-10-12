@@ -51,8 +51,18 @@ class Compte
      * @ORM\joincolumn(name="agence_id",referencedColumnName="id")
      */
     private $agences;
-
+    /**
+     * Many comptes have one typecompte. This is the inverse side.
+     * @ORM\ManyToOne(targetEntity="TypeCompte", inversedBy="comptes")
+     * @ORM\joincolumn(name="typecompte_id",referencedColumnName="id")
+     */
     private  $typeCompte_id;
+
+     /**
+         * One compte has many operations. This is the inverse side.
+         * @ORM\OneToMany(targetEntity="Operation", mappedBy="compte_id")
+         */
+        private $operations;
     
     public function __construct()
     {

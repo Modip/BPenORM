@@ -59,7 +59,6 @@
                            }
                         ?>
                     </select> <br>
-
                     <label for="cle"> Clé RIB</label>
                     <input type="" name="clerib" class="cp" id="clerib">
                     <label for="contrclerib" id="contrclerib" class="contr"> veillez saisir la clé RIB</label>
