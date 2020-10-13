@@ -18,7 +18,7 @@ $config = Setup::createAnnotationMetadataConfiguration(array(__DIR__."/src/entit
 
 // database configuration parameters
 $conn = array(
-    'dbname' => 'bp2orm',
+    'dbname' => 'bpormapi',
     'user'=>'root',
     'password' => '',
     'host' => '127.0.0.1',
